@@ -10,9 +10,9 @@ declare module '*.png';
 declare module '*.jpg';
 declare module '*.jpeg';
 
-declare module "*.svg" {
+declare module '*.svg' {
     const svg: string;
     export default svg;
 }
 
-declare const __IS_DEV__: boolean
+declare const __IS_DEV__: boolean;
