@@ -2,12 +2,16 @@ import './styles/index.scss';
 import { classNames } from 'shared/lib/class-name/classNames';
 import { Navbar } from 'widgets/navbar';
 import { Sidebar } from 'widgets/sidebar';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { AppRouter } from './providers/router';
 import { useTheme } from './providers/theme-provider';
 
 const App = () => {
     const { theme } = useTheme();
+
+    useEffect(() => {
+        Math.random()
+    })
 
     return (
         <Suspense fallback="">
