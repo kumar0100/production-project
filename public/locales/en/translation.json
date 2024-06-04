@@ -1,5 +1,8 @@
 {
     "language": "English",
     "mainPage": "Main Page",
-    "Page not found": "Page not found"
+    "Page not found": "Page not found",
+    "An unexpected error occurred": "An unexpected error occurred",
+    "throw error": "throw error",
+    "reload page": "reload page"
 }
