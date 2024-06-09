@@ -22,6 +22,6 @@ const ThemeProvider: FC = ({ children }) => {
             {children}
         </ThemeContext.Provider>
     );
-}
+};
 
 export default ThemeProvider;

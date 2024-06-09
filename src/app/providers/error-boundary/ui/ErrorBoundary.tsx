@@ -1,6 +1,5 @@
-import React, { ErrorInfo, Suspense } from "react";
-import { ReactNode } from "react";
-import { PageError } from "widgets/page-error";
+import React, { ErrorInfo, Suspense, ReactNode } from 'react';
+import { PageError } from 'widgets/page-error';
 
 interface ErrorBoundaryProps {
     children: ReactNode;
@@ -28,7 +27,7 @@ class ErrorBoundary extends React.Component<
         //   in ErrorBoundary (created by App)
         //   in div (created by App)
         //   in App
-        console.error(`The error is: ${error}`)
+        console.error(`The error is: ${error}`);
         console.error(`The error is: ${info.componentStack}`);
     }
 
@@ -38,7 +37,7 @@ class ErrorBoundary extends React.Component<
         if (hasError) {
             // You can render any custom fallback UI
             return (
-                <Suspense fallback='errobitch'>
+                <Suspense fallback="errobitch">
                     <PageError />
                 </Suspense>
             );

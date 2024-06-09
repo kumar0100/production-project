@@ -31,7 +31,7 @@
         // import * as React from 'react';
         // можно писать такой
         // import React from 'react';
-        "esModuleInterop": true,
+        "esModuleInterop": true
     },
     "ts-node": {
         "compilerOptions": {
@@ -39,5 +39,4 @@
         }
     },
     "exclude": ["./config/jest/jestSetupTest.ts"]
-    
 }

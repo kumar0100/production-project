@@ -1,6 +1,6 @@
-import { t, use } from "i18next";
-import { useEffect, useState } from "react";
-import { classNames } from "shared/lib/class-name/classNames";
+import { t, use } from 'i18next';
+import { useEffect, useState } from 'react';
+import { classNames } from 'shared/lib/class-name/classNames';
 
 export const BugButton = () => {
     const [error, setError] = useState(false);
@@ -13,8 +13,8 @@ export const BugButton = () => {
         }
     }, [error]);
     return (
-        <button onClick={onThrow} className={classNames("", {}, [])}>
-            {t("throw error")}
+        <button onClick={onThrow} className={classNames('', {}, [])}>
+            {t('throw error')}
         </button>
     );
 };

@@ -1,9 +1,12 @@
+import React from 'react';
+
 import { classNames } from 'shared/lib/class-name/classNames';
 import { ButtonHTMLAttributes, FC } from 'react';
 import cls from './Button.module.scss';
 
 export enum ThemeButton {
     CLEAR = 'clear',
+    OUTLINE = 'outline'
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

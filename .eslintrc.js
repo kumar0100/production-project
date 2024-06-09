@@ -4,10 +4,7 @@ module.exports = {
         es2021: true,
         jest: true,
     },
-    extends: [
-        'plugin:react/recommended',
-        'airbnb',
-    ],
+    extends: ['plugin:react/recommended', 'airbnb', 'plugin:storybook/recommended'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaFeatures: {
@@ -19,7 +16,6 @@ module.exports = {
     plugins: [
         'react',
         '@typescript-eslint',
-        'i18next',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -40,7 +36,8 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'max-len': ['error', { ignoreComments: true }],
+        'max-len': ['warn', { ignoreComments: true }],
+        'react/button-has-type': 'off',
     },
     globals: {
         __IS_DEV__: true,
