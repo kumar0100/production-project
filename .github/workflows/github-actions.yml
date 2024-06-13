@@ -23,3 +23,7 @@ jobs:
         run: npm run lint
       - name: unit test
         run: npm run test
+      - name: build storybook
+        run: npm run storybook:build
+      - name: screenshot test
+        run: npm run loki:test:ci
