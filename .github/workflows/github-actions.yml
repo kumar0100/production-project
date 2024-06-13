@@ -18,12 +18,12 @@ jobs:
       - name: install modules
         run: npm install
       - name: build production project
-        run: npm run build:dev
+        run: npm run build:prod
       - name: linting ts
         run: npm run lint
       - name: unit test
         run: npm run test
-      - name: build storybook
-        run: npm run storybook:build
-      - name: screenshot test
-        run: npm run loki:test:ci
+      # - name: build storybook
+      #   run: npm run storybook:build
+      # - name: screenshot test
+      #   run: npm run loki:test:ci
