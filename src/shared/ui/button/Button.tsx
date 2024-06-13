@@ -1,8 +1,6 @@
-import React from 'react';
-
 import { classNames } from 'shared/lib/class-name/classNames';
 // eslint-disable-next-line import/no-duplicates
-import { ButtonHTMLAttributes, FC } from 'react';
+import React, { ButtonHTMLAttributes, FC } from 'react';
 import cls from './Button.module.scss';
 
 export enum ThemeButton {

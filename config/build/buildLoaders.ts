@@ -3,14 +3,14 @@ import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
 
 export const buildLoaders = (option: BuildOptions): webpack.RuleSetRule[] => {
-    const { isDev } = option
+    const { isDev } = option;
     const typescriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
     };
-    const cssLoaders = buildCssLoader(isDev)
-    
+    const cssLoaders = buildCssLoader(isDev);
+
     const babelLoaders = {
         test: /\.(js|jsx|tsx)$/,
         exclude: /node_modules/,

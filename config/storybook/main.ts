@@ -10,7 +10,7 @@ const config: StorybookConfig = {
         "@chromatic-com/storybook",
         "@storybook/addon-interactions",
         "@storybook/addon-themes",
-        '@newhighsco/storybook-addon-svgr'
+        '@newhighsco/storybook-addon-svgr',
     ],
     framework: {
         name: "@storybook/react-webpack5",
