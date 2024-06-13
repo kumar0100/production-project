@@ -1,3 +1,4 @@
+import React from 'react';
 import { classNames } from 'shared/lib/class-name/classNames';
 import { Link } from 'react-router-dom';
 import { AppLink, AppLinkTheme } from 'shared/ui/app-link/AppLink';

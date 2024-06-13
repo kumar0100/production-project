@@ -38,6 +38,7 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'max-len': ['warn', { ignoreComments: true }],
         'react/button-has-type': 'off',
+        quotes: 'off',
     },
     globals: {
         __IS_DEV__: true,

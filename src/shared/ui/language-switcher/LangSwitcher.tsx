@@ -1,3 +1,4 @@
+import React from 'react';
 import { classNames } from 'shared/lib/class-name/classNames';
 import { useTranslation } from 'react-i18next';
 import cls from './LangSwitcher.module.scss';

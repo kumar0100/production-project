@@ -1,3 +1,4 @@
+import React from 'react';
 import { classNames } from 'shared/lib/class-name/classNames';
 import { useTheme } from 'app/providers/theme-provider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';

@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/class-name/classNames';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/theme-switcher';
 import { LangSwitcher } from 'shared/ui/language-switcher/LangSwitcher';
 import cls from './Sidebar.module.scss';
