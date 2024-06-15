@@ -4,5 +4,9 @@
     "Page not found": "Страница не найдена",
     "An unexpected error occurred": "Произошла непредвиденная ошибка",
     "throw error": "выдать ошибку",
-    "reload page": "перезагрузить страницу"
+    "reload page": "перезагрузить страницу",
+    "main": "Гланая",
+    "aboutPage": "О сайте",
+    "short": "ru"
 }
+

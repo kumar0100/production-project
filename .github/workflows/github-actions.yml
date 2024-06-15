@@ -18,12 +18,17 @@ jobs:
       - name: install modules
         run: npm install
       - name: build production project
+        if: alvays()
         run: npm run build:prod
       - name: linting ts
+        if: alvays()
         run: npm run lint
       - name: unit test
+        if: alvays()
         run: npm run test
-      # - name: build storybook
-      #   run: npm run storybook:build
-      # - name: screenshot test
-      #   run: npm run loki:test:ci
+      - name: build storybook
+        if: alvays()
+        run: npm run storybook:build
+      - name: screenshot test
+        if: alvays()
+        run: npm run loki:test:ci
