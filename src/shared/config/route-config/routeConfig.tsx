@@ -1,3 +1,4 @@
+import React from 'react';
 import { AboutPage } from 'pages/about-page';
 import { MainPage } from 'pages/main-page';
 import { NotFoundPage } from 'pages/not-found-page';
