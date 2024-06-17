@@ -42,6 +42,7 @@
         "@storybook/react": "^8.1.6",
         "@storybook/react-webpack5": "^8.1.7",
         "@storybook/test": "^8.1.6",
+        "@storybook/testing-library": "^0.0.9",
         "@svgr/webpack": "^6.2.1",
         "@testing-library/jest-dom": "^5.16.2",
         "@testing-library/react": "^12.1.3",
@@ -87,12 +88,14 @@
     },
     "dependencies": {
         "@newhighsco/storybook-addon-svgr": "^2.0.17",
+        "@reduxjs/toolkit": "^1.8.0",
         "i18next": "^21.6.11",
         "i18next-browser-languagedetector": "^6.1.3",
         "i18next-http-backend": "^1.3.2",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
         "react-i18next": "^11.15.5",
+        "react-redux": "^7.2.6",
         "react-router-dom": "^6.2.1"
     },
     "loki": {

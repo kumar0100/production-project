@@ -2,21 +2,32 @@
     "Component": {
         "prefix": "cm",
         "body": [
-          "import { classNames } from \"shared/lib/class-name/classNames\";",
-          "import cls from './$TM_FILENAME_BASE.module.scss'",
-          "",
-          "interface $TM_FILENAME_BASE$Props {",
-          "    className?: string",
-          "}",
-          "",
-          "export const $TM_FILENAME_BASE = ({className}: $TM_FILENAME_BASE$Props) => {",
-          "    return (",
-          "        <div className={classNames(cls.$TM_FILENAME_BASE, {}, [className])}>",
-          "",
-          "        </div>",
-          "    )",
-          "}"
+            "import { classNames } from \"shared/lib/class-name/classNames\";",
+            "import cls from './$TM_FILENAME_BASE.module.scss'",
+            "",
+            "interface $TM_FILENAME_BASE$Props {",
+            "    className?: string",
+            "}",
+            "",
+            "export const $TM_FILENAME_BASE = ({className}: $TM_FILENAME_BASE$Props) => {",
+            "    return (",
+            "        <div className={classNames(cls.$TM_FILENAME_BASE, {}, [className])}>",
+            "",
+            "        </div>",
+            "    )",
+            "}",
         ],
-        "description": "Component"
-      }
+        "description": "Component",
+    },
+    "Test": {
+        "prefix": "test",
+        "body": [
+            "describe($TM_FILENAME_BASE, () => {",
+            "    test( '', () => {",
+            "        expect().toEqual()",
+            "    })",
+            "})",
+        ],
+        "description": "Test",
+    },
 }
