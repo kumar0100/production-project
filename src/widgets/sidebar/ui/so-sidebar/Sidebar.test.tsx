@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, screen } from '@testing-library/react';
 // eslint-disable-next-line max-len
 import { renderComponent } from 'shared/lib/tests/render-component/renderComponent';
 import { Sidebar } from './Sidebar';

@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { loginByUsername } from "features/auth-by-username/services/login-by-username/loginByUserName";
+// eslint-disable-next-line max-len
+import { loginByUsername } from "features/auth-by-username/services/login-by-username/loginByUsername";
 import { LoginSchema } from "../types/loginSchema";
 
 const initialState: LoginSchema = {

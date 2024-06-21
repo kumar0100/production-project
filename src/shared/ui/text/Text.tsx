@@ -1,3 +1,4 @@
+import React from "react";
 import { classNames } from "shared/lib/class-name/classNames";
 import cls from "./Text.module.scss";
 
