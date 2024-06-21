@@ -1,12 +1,15 @@
 {
     "language": "English",
-    "mainPage": "Main Page",
+    "Main Page": "Main Page",
     "Page not found": "Page not found",
     "An unexpected error occurred": "An unexpected error occurred",
     "throw error": "throw error",
     "reload page": "reload page",
-    "main": "Main",
-    "aboutPage": "About Page",
+    "Main": "Main",
+    "About": "About",
     "short": "en",
-    "log in": "log in"
+    "log in": "log in",
+    "Auth form": "Auth form",
+    "There is wrong username or password": "There is wrong username or password",
+    "log out": "log out"
 }

@@ -1,6 +1,6 @@
-import { Counter } from "./ui/Counter"
+import { Counter } from "./ui/Counter";
 
 
 export {
-    Counter
-}
+    Counter,
+};

@@ -6,7 +6,6 @@ import { Button, ButtonSize, ThemeButton } from "shared/ui/button/Button";
 import { AppLink, AppLinkTheme } from "shared/ui/app-link/AppLink";
 import MainIcon from "shared/assets/icons/main-20-20.svg";
 import AboutIcon from "shared/assets/icons/about-20-20.svg";
-
 import { RoutePath } from "shared/config/route-config/routeConfig";
 import { useTranslation } from "react-i18next";
 import cls from "./Sidebar.module.scss";
@@ -45,7 +44,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     className={cls.item}
                 >
                     <MainIcon className={cls.icon} />
-                    <span className={cls.link}>{t("main")}</span>
+                    <span className={cls.link}>{t("Main")}</span>
                 </AppLink>
                 <AppLink
                     to={RoutePath.about}
@@ -53,7 +52,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
                     theme={AppLinkTheme.SECONDARY}
                 >
                     <AboutIcon className={cls.icon} />
-                    <span className={cls.link}>{t("aboutPage")}</span>
+                    <span className={cls.link}>{t("About")}</span>
                 </AppLink>
             </div>
             <div className={cls.switchers}>

@@ -1,15 +1,26 @@
 {
   "": "",
+  "About": "About",
+  "About Page": "About Page",
   "An unexpected error occurred": "An unexpected error occurred",
+  "Auth form": "Auth form",
   "Main": "Main",
+  "Main Page": "Main Page",
+  "Page": "Page",
   "Page not found": "Page not found",
+  "There is ": "There is ",
+  "There is wrong ": "There is wrong ",
+  "There is wrong username or ": "There is wrong username or ",
+  "There is wrong username or password": "There is wrong username or password",
   "about": "about",
   "aboutPage": "aboutPage",
   "language": "language",
   "log in": "log in",
+  "log out": "log out",
   "main": "main",
   "mainPage": "mainPage",
   "reload page": "reload page",
   "short": "short",
-  "throw error": "throw error"
+  "throw error": "throw error",
+  "Гланая": "Гланая"
 }

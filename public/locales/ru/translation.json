@@ -1,13 +1,16 @@
 {
     "language": "Русский",
-    "mainPage": "Гланая Страница",
+    "Main Page": "Гланая Страница",
     "Page not found": "Страница не найдена",
     "An unexpected error occurred": "Произошла непредвиденная ошибка",
     "throw error": "выдать ошибку",
     "reload page": "перезагрузить страницу",
-    "main": "Гланая",
-    "aboutPage": "О сайте",
+    "Main": "Гланая",
+    "About": "О сайте",
     "short": "ru",
-    "log in": "войти"
+    "log in": "войти",
+    "Auth form": "Форма авторизации",
+    "There is wrong username or password": "Вы вели неправелный логин или пароль",
+    "log out": "выйти"
 }
 
