@@ -23,29 +23,29 @@ export interface LoginFormProps {
 }
 const initialReducers: ReducerList = {
     loginForm: loginReducer,
-}
+};
 
 const LoginForm = ({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const username = useSelector(getLoginUsername) || ''
-    const password = useSelector(getLoginPassword) || ''
-    const isLoading = useSelector(getLoginIsLoading)
-    const error = useSelector(getLoginError)
+    const username = useSelector(getLoginUsername) || '';
+    const password = useSelector(getLoginPassword) || '';
+    const isLoading = useSelector(getLoginIsLoading);
+    const error = useSelector(getLoginError);
 
-    
+
 
     const onChangeUsername = useCallback(
         (value: string) => {
             dispatch(loginActions.setUsername(value));
         },
-        [dispatch]
+        [dispatch],
     );
     const onChangePassword = useCallback(
         (value: string) => {
             dispatch(loginActions.setPassword(value));
         },
-        [dispatch]
+        [dispatch],
     );
     const onLoginClick = useCallback(() => {
         dispatch(loginByUsername({ username, password }));

@@ -20,9 +20,9 @@
         "description": "Component",
     },
     "Test": {
-        "prefix": "test",
+        "prefix": "ts",
         "body": [
-            "describe($TM_FILENAME_BASE, () => {",
+            "describe('$TM_FILENAME_BASE', () => {",
             "    test( '', () => {",
             "        expect().toEqual()",
             "    })",

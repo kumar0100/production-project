@@ -12,7 +12,7 @@ export const createReduxSore = (initialState?: StateSchema) => {
         loginForm: loginReducer,
     };
 
-    const reducerManager = createReducerManager(rootReducers)
+    const reducerManager = createReducerManager(rootReducers);
 
     const store = configureStore<StateSchema>({
         reducer: reducerManager.reduce,
@@ -20,7 +20,7 @@ export const createReduxSore = (initialState?: StateSchema) => {
         preloadedState: initialState,
     });
     // @ts-ignore
-    store.reducerManager = reducerManager
+    store.reducerManager = reducerManager;
 
     return store;
 };

@@ -25,7 +25,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
             ([name, reducer]: ReducerListEntry) => {
                 store.reducerManager.add(name, reducer);
                 dispatch({ type: `@INIT ${name} reducer` });
-            }
+            },
         );
 
         return () => {
@@ -34,7 +34,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
                     ([name, reducer]: ReducerListEntry) => {
                         store.reducerManager.remove(name);
                         dispatch({ type: `@DESTROY ${name} reducer` });
-                    }
+                    },
                 );
             }
         };
