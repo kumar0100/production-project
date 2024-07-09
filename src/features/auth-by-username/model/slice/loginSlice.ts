@@ -1,4 +1,4 @@
-import { PayloadAction, createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 // eslint-disable-next-line max-len
 import { loginByUsername } from "features/auth-by-username/services/login-by-username/loginByUsername";
 import { LoginSchema } from "../types/loginSchema";
@@ -7,7 +7,7 @@ const initialState: LoginSchema = {
     username: "",
     password: "",
     isLoading: false,
-    error: null,
+    error: undefined
 };
 
 export const loginSlice = createSlice({
@@ -30,7 +30,7 @@ export const loginSlice = createSlice({
             // You can chain calls, or have separate `builder.addCase()` lines each time
             .addCase(loginByUsername.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.error = null;
+                state.error = undefined;
             })
             // You can match a range of action types
             .addCase(loginByUsername.rejected, (state, action) => {

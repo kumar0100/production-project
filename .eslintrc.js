@@ -47,8 +47,10 @@ module.exports = {
         "react-hooks/exhaustive-deps": "warn",
         "no-param-reassign": "off",
         "no-multiple-empty-lines": "off",
+        "no-undef": "off",
     },
     globals: {
         __IS_DEV__: true,
+        __API__: true
     },
 };

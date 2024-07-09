@@ -1,6 +1,4 @@
 import axios from "axios";
-import { Dispatch } from "react";
-import { StateSchema } from "app/providers/store-provider";
 import { userActions } from "entities/user";
 import { TestAsyncFunk } from "shared/lib/tests/test-async-funk/TestAsyncFunk";
 import { loginByUsername } from "./loginByUsername";

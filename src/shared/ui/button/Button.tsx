@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/class-name/classNames';
+import { Mods, classNames } from 'shared/lib/class-name/classNames';
 // eslint-disable-next-line import/no-duplicates
-import React, { ButtonHTMLAttributes, FC } from 'react';
+import React, { ButtonHTMLAttributes, ReactNode, memo } from 'react';
 import cls from './Button.module.scss';
 
 export enum ThemeButton {
@@ -22,15 +22,16 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     theme?: ThemeButton;
     square?: boolean,
     size?: ButtonSize,
-    disabled?: boolean
+    disabled?: boolean,
+    children?: ReactNode
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
     const {
-        className, theme, children, square, size, disabled, ...otherProps
+        className, theme = ThemeButton.OUTLINE, children, square, size = ButtonSize.M, disabled, ...otherProps
     } = props;
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.square]: square,
         [cls[size]]: true,
         [cls.disabled]: disabled,
@@ -46,4 +47,4 @@ export const Button: FC<ButtonProps> = (props) => {
             {children}
         </button>
     );
-};
+});
