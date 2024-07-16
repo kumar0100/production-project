@@ -1,20 +1,24 @@
-import { classNames } from "shared/lib/class-name/classNames";
+import { classNames, Mods } from "shared/lib/class-name/classNames";
 import React, {
-    ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef, useState,
+    InputHTMLAttributes,
+    memo,
+    useEffect,
+    useRef,
+    useState,
 } from "react";
 import cls from "./Input.module.scss";
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    "value" | "onChange"
+    "value" | "onChange" | "readOnly"
 >;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
-    type?: string;
-    autoFocus?: boolean;
+    autofocus?: boolean;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -24,53 +28,66 @@ export const Input = memo((props: InputProps) => {
         onChange,
         type = "text",
         placeholder,
-        autoFocus,
+        autofocus,
+        readonly,
         ...otherProps
     } = props;
-    const [isFocus, setFocus] = useState(false);
-    const [caretPosition, setCaretPosition] = useState(0);
     const ref = useRef<HTMLInputElement>(null);
+    const [isFocused, setIsFocused] = useState(false);
+    const [caretPosition, setCaretPosition] = useState(0);
 
-    const onFocus = () => {
-        setFocus(true);
-    };
-    const onBlur = () => {
-        setFocus(false);
-    };
-    const onChengeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const isCaretVisible = isFocused && !readonly;
+
+    useEffect(() => {
+        if (autofocus) {
+            setIsFocused(true);
+            ref.current?.focus();
+        }
+    }, [autofocus]);
+
+    const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
         setCaretPosition(e.target.value.length);
     };
+
+    const onBlur = () => {
+        setIsFocused(false);
+    };
+
+    const onFocus = () => {
+        setIsFocused(true);
+    };
+
     const onSelect = (e: any) => {
         setCaretPosition(e?.target?.selectionStart || 0);
     };
-    useEffect(() => {
-        if (autoFocus) {
-            setFocus(true);
-            ref.current?.focus();
-        }
-    }, [autoFocus]);
+
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    };
+
     return (
         <div className={classNames(cls.InputWrapper, {}, [className])}>
             {placeholder && (
-                <div className={cls.placeholder}>{`${placeholder} >`}</div>
+                <div className={cls.placeholder}>{`${placeholder}>`}</div>
             )}
             <div className={cls.caretWrapper}>
                 <input
                     ref={ref}
-                    className={cls.input}
                     type={type}
-                    onChange={onChengeHandler}
                     value={value}
+                    onChange={onChangeHandler}
+                    className={cls.input}
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSelect={onSelect}
+                    readOnly={readonly}
                     {...otherProps}
                 />
-                {isFocus && (
+                {isCaretVisible && (
                     <span
                         className={cls.caret}
-                        style={{ left: `${caretPosition * 8.5}px` }}
+                        style={{ left: `${caretPosition * 9}px` }}
                     />
                 )}
             </div>

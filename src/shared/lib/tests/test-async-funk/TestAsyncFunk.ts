@@ -12,6 +12,7 @@ export class TestAsyncFunk<Return, Arg, RejectedValue> {
     getState: () => StateSchema;
 
     actionCreator: ActionCreatorType<Return, Arg, RejectedValue>;
+    api: any;
 
     // eslint-disable-next-line no-useless-constructor, no-empty-function
     constructor(actionCreator: ActionCreatorType<Return, Arg, RejectedValue>) {

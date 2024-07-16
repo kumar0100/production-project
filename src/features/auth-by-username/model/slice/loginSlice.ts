@@ -1,17 +1,15 @@
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-// eslint-disable-next-line max-len
-import { loginByUsername } from "features/auth-by-username/services/login-by-username/loginByUsername";
-import { LoginSchema } from "../types/loginSchema";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { LoginSchema } from '../types/loginSchema';
+import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 
 const initialState: LoginSchema = {
-    username: "",
-    password: "",
     isLoading: false,
-    error: undefined
+    username: '',
+    password: '',
 };
 
 export const loginSlice = createSlice({
-    name: "login",
+    name: 'login',
     initialState,
     reducers: {
         setUsername: (state, action: PayloadAction<string>) => {
@@ -21,26 +19,22 @@ export const loginSlice = createSlice({
             state.password = action.payload;
         },
     },
-    extraReducers(builder) {
+    extraReducers: (builder) => {
         builder
             .addCase(loginByUsername.pending, (state) => {
-                // action is inferred correctly here if using TS
+                state.error = undefined;
                 state.isLoading = true;
             })
-            // You can chain calls, or have separate `builder.addCase()` lines each time
-            .addCase(loginByUsername.fulfilled, (state, action) => {
+            .addCase(loginByUsername.fulfilled, (state) => {
                 state.isLoading = false;
-                state.error = undefined;
             })
-            // You can match a range of action types
             .addCase(loginByUsername.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload;
-                console.log(action.payload);
-                console.log('go fuck yourself');
             });
     },
 });
 
+// Action creators are generated for each case reducer function
 export const { actions: loginActions } = loginSlice;
 export const { reducer: loginReducer } = loginSlice;
