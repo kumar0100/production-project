@@ -21,6 +21,8 @@ import { getUserAuthData } from "entities/user/model/selectors/get-auth-data/get
 import { TextTheme, Text } from "shared/ui/text/Text";
 import { getProfileValidateErrors } from "entities/profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { ProfilePageHeader } from "./profile-page-header/ProfilePageHeader";
+import { useParams } from "react-router-dom";
+import { useInitialEffect } from "shared/lib/hooks/use-initial-effect/useInitialEffect";
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -39,6 +41,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
     const readonly = useSelector(getProfileReadonly);
     const isAuth = useSelector(getUserAuthData)
     const validateErrors = useSelector(getProfileValidateErrors)
+    const { id } = useParams<{id: string}>()
 
     const validateErrorTranslates = {
         [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
@@ -48,11 +51,11 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
         [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
     };
 
-    useEffect(() => {
-        if (isAuth) {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (isAuth && id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch, isAuth]);
+    });
 
     const onChangeFirstname = useCallback(
         (value?: string) => {
