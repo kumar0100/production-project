@@ -23,7 +23,6 @@ describe("Counter", () => {
             initialState: { counter: { value: 5 } },
         });
         userEvent.click(screen.getByTestId('btndecr'));
-        console.log(screen.getByTestId('btndecr'));
         expect(screen.getByTestId('text')).toHaveTextContent('4');
     });
 });

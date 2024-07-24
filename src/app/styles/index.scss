@@ -2,6 +2,8 @@
 @import "variables/global.scss";
 @import "themes/dark.scss";
 @import "themes/normal.scss";
+@import "themes/third.scss";
+
 
 body {
     color: var(--primary-color);
@@ -11,8 +13,8 @@ body {
 
 .app {
     background: var(--bg-color);
-
     min-height: 100vh;
+    color: var(--primary-color);
 }
 
 .content-page {
@@ -21,5 +23,8 @@ body {
 
 .page-wrapper {
     flex-grow: 1;
-    padding: 20px;
+    padding: 20px 20px 20px 45px;
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    width: 100%;
 }

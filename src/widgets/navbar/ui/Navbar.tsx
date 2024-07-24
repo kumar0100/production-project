@@ -2,10 +2,10 @@ import React, { memo, useCallback, useState } from "react";
 import { classNames } from "shared/lib/class-name/classNames";
 import { Button, ThemeButton } from "shared/ui/button/Button";
 import { useTranslation } from "react-i18next";
-import { LoginModal } from "features/auth-by-username";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserAuthData } from "entities/user/model/selectors/get-auth-data/getAuthData";
 import { userActions } from "entities/user";
+import { LoginModal } from "features/auth-by-username";
 import cls from "./Navbar.module.scss";
 
 interface NavbarProps {
@@ -49,7 +49,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             >
                 {t("log in")}
             </Button>
-            {isAuthModal && <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />}
+            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
         </div>
     );
 });

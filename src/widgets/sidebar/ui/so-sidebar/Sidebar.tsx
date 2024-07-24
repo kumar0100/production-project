@@ -1,11 +1,8 @@
-import React, { memo, useMemo, useState } from "react";
+import React, { memo, useState } from "react";
 import { classNames } from "shared/lib/class-name/classNames";
 import { ThemeSwitcher } from "shared/ui/theme-switcher";
 import { LangSwitcher } from "shared/ui/language-switcher/LangSwitcher";
 import { Button, ButtonSize, ThemeButton } from "shared/ui/button/Button";
-import { AppLink, AppLinkTheme } from "shared/ui/app-link/AppLink";
-import { RoutePath } from "shared/config/route-config/routeConfig";
-import { useTranslation } from "react-i18next";
 import { SidebarItemsList } from "widgets/sidebar/model/item";
 import { SidebarItem } from "../sidbar-item/SidebarItem";
 import cls from "./Sidebar.module.scss";
@@ -15,7 +12,6 @@ interface SidebarProps {
 }
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
-    const [test, setTest] = useState(0);
     const [colapsed, setColapsed] = useState(false);
     const onToggle = () => {
         setColapsed((prev) => !prev);
