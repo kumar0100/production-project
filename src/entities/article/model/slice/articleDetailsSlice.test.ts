@@ -11,13 +11,17 @@ describe("article-details-slice", () => {
         img: "img",
         views: 100,
         createdAt: "12.12.12",
+        user: {
+            id: "1",
+            username: "snow",
+        },
         type: [],
         blocks: [],
     };
     test("loading", () => {
         const state: DeepPartial<ArticleDetailsSchema> = {
             isLoading: false,
-        }
+        };
         expect(
             articleDetailsReducer(
                 state as ArticleDetailsSchema,
@@ -34,13 +38,13 @@ describe("article-details-slice", () => {
             error: undefined,
         };
         expect(
-            articleDetailsReducer(
-                state as ArticleDetailsSchema,
-                { type: fetchArticleById.rejected.type, payload: 'error' },
-            ),
+            articleDetailsReducer(state as ArticleDetailsSchema, {
+                type: fetchArticleById.rejected.type,
+                payload: "error",
+            })
         ).toEqual({
             isLoading: false,
-            error: 'error',
+            error: "error",
         });
     });
 
@@ -52,7 +56,7 @@ describe("article-details-slice", () => {
         expect(
             articleDetailsReducer(
                 state as ArticleDetailsSchema,
-                fetchArticleById.fulfilled(data, '', ' '),
+                fetchArticleById.fulfilled(data, "", " ")
             )
         ).toEqual({
             isLoading: false,

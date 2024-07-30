@@ -8,6 +8,10 @@ describe("fetchProfileData.test", () => {
             id: "1",
             title: "title",
             subtitle: "subtitle",
+            user: {
+                id: "1",
+                username: "snow",
+            },
             img: "img",
             views: 100,
             createdAt: "12.12.12",
@@ -19,7 +23,7 @@ describe("fetchProfileData.test", () => {
         const result = await thunk.callThunk("1");
 
         expect(thunk.api.get).toHaveBeenCalled();
-        expect(result.meta.requestStatus).toBe('fulfilled')
+        expect(result.meta.requestStatus).toBe("fulfilled");
         expect(result.payload).toEqual(data);
     });
 

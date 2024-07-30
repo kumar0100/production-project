@@ -2,7 +2,7 @@ import { classNames } from "shared/lib/class-name/classNames";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 import { ArticleDetails } from "entities/article";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Text } from "shared/ui/text/Text";
 import { CommentLIst } from "entities/comment";
 import {
@@ -21,6 +21,8 @@ import { fetchCommentArticleId } from "pages/article-page-details/model/services
 import { AddCommentForm } from "features/add-comment-form";
 import { addCommentForArticle } from "pages/article-page-details/model/services/add-comment-for-article/addCommentForArticle";
 import cls from "./ArticlePageDeatils.module.scss";
+import { Button, ThemeButton } from "shared/ui/button/Button";
+import { RoutePath } from "shared/config/route-config/routeConfig";
 
 interface ArticlePageDeatilsProps {
     className?: string;
@@ -36,6 +38,10 @@ const ArticlePageDeatils = ({ className }: ArticlePageDeatilsProps) => {
     const comment = useSelector(getArticleComments.selectAll);
     const commentIsloading = useSelector(getArticleCommentsIsloading);
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+    const onBackBtn = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
     const onSendComment = useCallback(
         (text: string) => {
             dispatch(addCommentForArticle(text));
@@ -59,6 +65,9 @@ const ArticlePageDeatils = ({ className }: ArticlePageDeatilsProps) => {
             <div
                 className={classNames(cls.ArticlePageDeatils, {}, [className])}
             >
+                <Button theme={ThemeButton.OUTLINE} onClick={onBackBtn}>
+                    {t("Back to list")}
+                </Button>
                 <ArticleDetails id={id} />
                 <Text className={cls.commentTitle} title={t("Comments")} />
                 <AddCommentForm onSendComment={onSendComment} />

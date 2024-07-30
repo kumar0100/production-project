@@ -23,6 +23,7 @@ export const createReduxSore = (
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
+
         // @ts-ignore
         loginForm: loginReducer,
         // @ts-ignore
