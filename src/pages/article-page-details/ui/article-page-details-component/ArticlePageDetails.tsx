@@ -23,6 +23,7 @@ import { addCommentForArticle } from "pages/article-page-details/model/services/
 import cls from "./ArticlePageDeatils.module.scss";
 import { Button, ThemeButton } from "shared/ui/button/Button";
 import { RoutePath } from "shared/config/route-config/routeConfig";
+import { Page } from "shared/ui/page/Page";
 
 interface ArticlePageDeatilsProps {
     className?: string;
@@ -61,8 +62,8 @@ const ArticlePageDeatils = ({ className }: ArticlePageDeatilsProps) => {
         );
     }
     return (
-        <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
-            <div
+        <DynamicModuleLoader reducers={reducer}>
+            <Page
                 className={classNames(cls.ArticlePageDeatils, {}, [className])}
             >
                 <Button theme={ThemeButton.OUTLINE} onClick={onBackBtn}>
@@ -72,7 +73,7 @@ const ArticlePageDeatils = ({ className }: ArticlePageDeatilsProps) => {
                 <Text className={cls.commentTitle} title={t("Comments")} />
                 <AddCommentForm onSendComment={onSendComment} />
                 <CommentLIst isLoading={commentIsloading} comments={comment} />
-            </div>
+            </Page>
         </DynamicModuleLoader>
     );
 };

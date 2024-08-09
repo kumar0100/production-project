@@ -8,14 +8,14 @@ import { ProfileSchema } from "entities/profile";
 import { UserSchema } from "entities/user";
 import { addCommentFormSchema } from "features/add-comment-form";
 import { LoginSchema } from "features/auth-by-username";
+import { UISchema } from "features/UI/model/types/UISchema";
 import { ArticlePageSchema } from "pages/article-page";
 import { ArticleDetailsCommentsSchema } from "pages/article-page-details";
-import { NavigateOptions, To } from "react-router-dom";
 
 export interface StateSchema {
     counter: counterSchema;
     user: UserSchema;
-
+    ui: UISchema;
     // Async Reducers
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
@@ -26,12 +26,14 @@ export interface StateSchema {
 }
 
 export type StateSchemaKey = keyof StateSchema
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
 
 export interface reducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>,
     reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>,
     add: (key: StateSchemaKey, reducer: Reducer) => void,
-    remove: (key: StateSchemaKey) => void
+    remove: (key: StateSchemaKey) => void,
+    getMountedReducers: () => MountedReducers
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
@@ -40,7 +42,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate?: (to: To, options?: NavigateOptions) => void
 }
 
 export interface ThunkConfig <T> {

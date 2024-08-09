@@ -13,8 +13,7 @@ export const StoreProvider = ({
     children,
     initialState,
 }: StoreProviderProps) => {
-    const navigate = useNavigate();
-    const store = createReduxSore(initialState as StateSchema, navigate);
+    const store = createReduxSore(initialState as StateSchema);
 
     return <Provider store={store}>{children}</Provider>;
 };

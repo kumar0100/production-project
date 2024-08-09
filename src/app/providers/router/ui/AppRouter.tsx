@@ -13,7 +13,7 @@ const AppRouter = () => {
             key={route.path}
             path={route.path}
             // eslint-disable-next-line max-len, react/jsx-no-useless-fragment
-            element={route.authOnly ? <RequireAuth><div className="page-wrapper">{route.element}</div></RequireAuth> : <div className="page-wrapper">{route.element}</div>}
+            element={route.authOnly ? <RequireAuth><>{route.element}</></RequireAuth> : <>{route.element}</>}
         />
     ), []);
     return (
