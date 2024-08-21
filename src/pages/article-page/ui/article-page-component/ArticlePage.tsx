@@ -3,8 +3,6 @@ import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 import {
     ArticleList,
-    ArticleView,
-    ArticleViewSelector,
 } from "entities/article";
 import {
     DynamicModuleLoader,
@@ -27,7 +25,10 @@ import {
 } from "pages/article-page/model/selectors/articlesPageSelectors";
 import { Page } from "shared/ui/page/Page";
 import { fetchNextArticlesPage } from "pages/article-page/model/services/fetch-article-next-page/fetchArticleNextPage";
+import { initArticlePage } from "pages/article-page/model/services/init-article-page/initArticlePage";
+import { useSearchParams } from "react-router-dom";
 import cls from "./ArticlePage.module.scss";
+import { ArticlePageFilters } from "../article-page-filter/ArticlePageFilters";
 
 interface ArticlePageProps {
     className?: string;
@@ -44,24 +45,23 @@ const ArticlePage = ({ className }: ArticlePageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     const page = useSelector(getArticlesPageNum);
-
+    let [searchParams] = useSearchParams()
+    
     const hasMore = useSelector(getArticlesPageHasMore);
     const articles = useSelector(getArticle.selectAll);
-    const onChangeView = useCallback((view: ArticleView) => {
-        dispatch(articlePageActions.setView(view));
-    }, []);
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch, hasMore, isLoading, page]);
-    useInitialEffect(() => {});
+    useInitialEffect(() => dispatch(initArticlePage(searchParams)));
     return (
         <DynamicModuleLoader reducers={reducer} removeAfterUnmount={false}>
             <Page
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlePage, {}, [className])}
             >
-                <ArticleViewSelector view={view} onViewClick={onChangeView} />
+                <ArticlePageFilters />
                 <ArticleList
+                    className={cls.list}
                     view={view}
                     isLoading={isLoading}
                     articles={articles}

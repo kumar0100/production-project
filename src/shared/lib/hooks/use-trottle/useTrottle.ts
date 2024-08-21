@@ -8,8 +8,8 @@ export const useTrottle = (callBack: (...args: any[]) => void, delay: number) =>
             trottlingRef.current = true;
 
             setTimeout(() => {
-                trottlingRef.current = false
-            }, delay)
+                trottlingRef.current = false;
+            }, delay);
         }
     }, []);
 };

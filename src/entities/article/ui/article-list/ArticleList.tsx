@@ -2,6 +2,7 @@ import { classNames } from "shared/lib/class-name/classNames";
 import { useTranslation } from "react-i18next";
 import { memo, ReactNode } from "react";
 import { Article, ArticleView } from "entities/article/model/types/article";
+import { Text } from "shared/ui/text/Text";
 import cls from "./ArticleList.module.scss";
 import { ArticleListItem } from "../article-list-item/ArticleListItem";
 import { ArticleListItemSkeleton } from "../article-list-item/ArticleListItemSkeleton";
@@ -13,7 +14,7 @@ interface ArticleListProps {
     view?: ArticleView;
 }
 
-const getSkeleton = (view: ArticleView): ReactNode => (
+const getSkeleton = (view: ArticleView): ReactNode =>
     new Array(view === ArticleView.SMALL ? 9 : 3)
         .fill(0)
         .map((_, index) => (
@@ -22,8 +23,7 @@ const getSkeleton = (view: ArticleView): ReactNode => (
                 key={index}
                 view={view}
             />
-        ))
-);
+        ));
 export const ArticleList = memo((props: ArticleListProps) => {
     const { t } = useTranslation();
     const { className, articles, isLoading, view = ArticleView.SMALL } = props;
@@ -36,6 +36,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
             className={cls.card}
         />
     );
+    if (!isLoading && !articles.length) {
+        return (
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
+                <Text title={t('Article is not found')} />
+            </div>
+        );
+    }
     return (
         <div
             className={classNames(cls.ArticleList, {}, [className, cls[view]])}

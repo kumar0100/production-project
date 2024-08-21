@@ -1,6 +1,8 @@
 import { classNames } from "shared/lib/class-name/classNames";
 import { useTranslation } from "react-i18next";
-import { memo, MutableRefObject, ReactNode, useRef, UIEvent } from "react";
+import {
+    memo, MutableRefObject, ReactNode, useRef, UIEvent,
+} from "react";
 import { useInfiniteScroll } from "shared/lib/hooks/use-infinite-scrall/useInfiniteScrall";
 import { useAppDispatch } from "shared/lib/hooks/use-app-dispatch/useAppDispatch";
 import { getUIScrollByPath, uiAction } from "features/UI";
@@ -30,7 +32,7 @@ export const Page = memo((props: PageProps) => {
             uiAction.setScrollPosition({
                 position: e.currentTarget.scrollTop,
                 path: pathname,
-            })
+            }),
         );
     }, 500);
     useInfiniteScroll({
@@ -48,7 +50,7 @@ export const Page = memo((props: PageProps) => {
             className={classNames(cls.Page, {}, [className])}
         >
             {children}
-            <div ref={triggerRef} />
+            {onScrollEnd && <div className={cls.trigger} ref={triggerRef} />}
         </div>
     );
 });
