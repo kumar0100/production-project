@@ -17,9 +17,14 @@ module.exports = {
         },
         ecmaVersion: "latest",
         sourceType: "module",
-    },
+    }, 
     plugins: ["react", "@typescript-eslint", "react-hooks"],
     rules: {
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            { argsIgnorePattern: "^_" },
+        ],
         "react/jsx-indent": [2, 4],
         "react/jsx-indent-props": [2, 4],
         indent: [2, 4],

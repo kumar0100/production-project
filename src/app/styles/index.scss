@@ -4,11 +4,9 @@
 @import "themes/normal.scss";
 @import "themes/third.scss";
 
-
 body {
     color: var(--primary-color);
     font: var(--font-m);
-
 }
 
 .app {
@@ -19,4 +17,19 @@ body {
 
 .content-page {
     display: flex;
+}
+
+*::-webkit-scrollbar {
+    width: 12px; /* width of the entire scrollbar */
+    height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: var(--card-bg); /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: var(--inverted-primary-color); /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid var(--primary-color); /* creates padding around scroll thumb */
 }

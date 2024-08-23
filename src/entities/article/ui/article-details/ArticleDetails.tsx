@@ -14,7 +14,9 @@ import {
     getArticleDetailsError,
     getArticleDetailsIsLoading,
 } from "entities/article/model/selectors/articleDetails";
-import { Text, TextAlign, TextSize, TextTheme } from "shared/ui/text/Text";
+import {
+    Text, TextAlign, TextSize, TextTheme,
+} from "shared/ui/text/Text";
 import { Skeleton } from "shared/ui/skeleton/Skeleton";
 import { Avatar } from "shared/ui/avatar/Avatar";
 import EyeIcon from "shared/assets/icons/eye-20-20.svg";

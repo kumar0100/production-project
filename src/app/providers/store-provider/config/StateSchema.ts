@@ -10,7 +10,7 @@ import { addCommentFormSchema } from "features/add-comment-form";
 import { LoginSchema } from "features/auth-by-username";
 import { UISchema } from "features/UI/model/types/UISchema";
 import { ArticlePageSchema } from "pages/article-page";
-import { ArticleDetailsCommentsSchema } from "pages/article-page-details";
+import { ArticleDetailsPageSchema } from "pages/article-page-details";
 
 export interface StateSchema {
     counter: counterSchema;
@@ -20,9 +20,9 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDtails?: ArticleDetailsSchema;
-    articleDetailsComments?: ArticleDetailsCommentsSchema;
     addCommentForm?: addCommentFormSchema;
     articlePage?: ArticlePageSchema;
+    articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
