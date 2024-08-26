@@ -16,6 +16,7 @@ export const ArticleCodeBlockComp = memo(({
     className,
     block,
 }: ArticleCodeBlockCompProps) => {
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     const { t } = useTranslation("article");
     return (
         <div className={classNames(cls.ArticleCodeBlockComp, {}, [className])}>

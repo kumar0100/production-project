@@ -2,7 +2,7 @@ import { classNames } from "shared/lib/class-name/classNames";
 import { useTranslation } from "react-i18next";
 import { memo, useCallback } from "react";
 import { ArticleDetails, ArticleList } from "entities/article";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Text } from "shared/ui/text/Text";
 import { CommentLIst } from "entities/comment";
 import {
@@ -19,14 +19,13 @@ import { useAppDispatch } from "shared/lib/hooks/use-app-dispatch/useAppDispatch
 import { fetchCommentArticleId } from "pages/article-page-details/model/services/fetch-comment-article-id/fetchCommentArticleId";
 import { AddCommentForm } from "features/add-comment-form";
 import { addCommentForArticle } from "pages/article-page-details/model/services/add-comment-for-article/addCommentForArticle";
-import { Button, ThemeButton } from "shared/ui/button/Button";
-import { RoutePath } from "shared/config/route-config/routeConfig";
 import { Page } from "shared/ui/page/Page";
 import { getArticleRecomandations } from "pages/article-page-details/model/slices/articleDetailsRecomandationsSlice";
 import { articleDetailsPageReducer } from "pages/article-page-details/model/slices";
 import { getArticleRecomendationsIsloading } from "pages/article-page-details/model/selectors/recomendations";
 import { fetchArticleDetailsRecomendations } from "pages/article-page-details/model/services/article-details-recomendations/fetchArticleDetailsRecomendations";
 import cls from "./ArticlePageDeatils.module.scss";
+import { ArticleDetailsPageHeader } from "../article-details-page-header/ArticleDetailsPageHeader";
 
 interface ArticlePageDeatilsProps {
     className?: string;
@@ -44,10 +43,6 @@ const ArticlePageDeatils = ({ className }: ArticlePageDeatilsProps) => {
     const commentIsloading = useSelector(getArticleCommentsIsloading);
     const recomendationsIsloading = useSelector(getArticleRecomendationsIsloading);
     const dispatch = useAppDispatch();
-    const navigate = useNavigate();
-    const onBackBtn = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
     const onSendComment = useCallback(
         (text: string) => {
             dispatch(addCommentForArticle(text));
@@ -72,9 +67,7 @@ const ArticlePageDeatils = ({ className }: ArticlePageDeatilsProps) => {
             <Page
                 className={classNames(cls.ArticlePageDeatils, {}, [className])}
             >
-                <Button theme={ThemeButton.OUTLINE} onClick={onBackBtn}>
-                    {t("Back to list")}
-                </Button>
+                <ArticleDetailsPageHeader />
                 <ArticleDetails id={id} />
                 <Text title={t('Recomendetions')} className={cls.commentTitle} />
                 <ArticleList articles={recomendations} target="_blank" isLoading={recomendationsIsloading} className={cls.recomendations} />

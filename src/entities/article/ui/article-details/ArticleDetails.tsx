@@ -29,7 +29,7 @@ import {
 import cls from "./ArticleDetails.module.scss";
 import { ArticleImageBlockComp } from "../article-image-block-comp/ArticleImageBlockComp";
 import { ArticleTextBlockComp } from "../article-text-block-comp/ArticleTextBlockComp";
-import { ArticleCodeBlockComp } from "../article-code-block-comp copy/ArticleCodeBlockComp";
+import { ArticleCodeBlockComp } from "../article-code-block-comp/ArticleCodeBlockComp";
 
 interface ArticleDetailsProps {
     className?: string;

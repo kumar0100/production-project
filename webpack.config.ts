@@ -1,8 +1,5 @@
 import path from "path";
 import webpack from "webpack";
-import { buildPlugins } from "./config/build/buildPlugins";
-import { buildLoaders } from "./config/build/buildLoaders";
-import { buildResolves } from "./config/build/buildResolves";
 import { buildWebpackConfig } from "./config/build/buildWebpackConfig";
 import { BuildEnv, BuildPaths } from "./config/build/types/config";
 
@@ -12,6 +9,8 @@ export default (env: BuildEnv) => {
         build: path.resolve(__dirname, "build"),
         html: path.resolve(__dirname, "public", "index.html"),
         src: path.resolve(__dirname, "src"),
+        locales: path.resolve(__dirname, "public", 'locales'),
+        buildLocales: path.resolve(__dirname, "build", 'locales'),
     };
 
     const mode = env.mode || "development";

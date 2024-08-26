@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import { useDispatch, useStore } from "react-redux";
+import { useStore } from "react-redux";
 import {
     ReduxStoreWithManager,
     StateSchemaKey,
@@ -34,6 +34,7 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
 
         return () => {
             if (removeAfterUnmount) {
+                // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
                 Object.entries(reducers).forEach(([name, reducer]) => {
                     store.reducerManager.remove(name as StateSchemaKey);
                     dispatch({ type: `@DESTROY ${name} reducer` });

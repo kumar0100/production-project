@@ -1,6 +1,7 @@
 import HTMLWebpackPlugin from "html-webpack-plugin";
 import webpack from "webpack";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import CopyPlugin from "copy-webpack-plugin";
 import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
 import { BuildOptions } from "./types/config";
@@ -22,6 +23,9 @@ export const buildPlugins = ({
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
+        }),
+        new CopyPlugin({
+            patterns: [{ from: paths.build, to: paths.buildLocales }],
         }),
     ];
 

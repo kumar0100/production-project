@@ -9,7 +9,6 @@ import {
     ReducersList,
 } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import {
-    articlePageActions,
     articlePageReducer,
     getArticle,
 } from "pages/article-page/model/slices/articlePageSlice";
@@ -39,14 +38,16 @@ const reducer: ReducersList = {
 };
 
 const ArticlePage = ({ className }: ArticlePageProps) => {
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     const { t } = useTranslation("article");
     const dispatch = useAppDispatch();
     const isLoading = useSelector(getArticlesPageIsLoading);
+    // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
     const page = useSelector(getArticlesPageNum);
-    let [searchParams] = useSearchParams()
-    
+    // eslint-disable-next-line prefer-const
+    let [searchParams] = useSearchParams();
     const hasMore = useSelector(getArticlesPageHasMore);
     const articles = useSelector(getArticle.selectAll);
     const onLoadNextPart = useCallback(() => {
